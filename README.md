@@ -16,7 +16,6 @@
 - **Pure recursive resolution** — walks the DNS tree from root servers; no forwarders, no external dependencies
 - **DNSSEC full validation** — bogus responses return SERVFAIL; trust anchors set via Lua, not the broken INI key
 - **Operator-controlled root hints** — custom `named.root` downloaded and PGP-verified from IANA
-- **DISA STIG DNS V2R4 compliance** — all applicable controls satisfied and mapped
 - **systemd hardening drop-in** — capabilities tightened, core dumps disabled, syscall filter extended; OL8/systemd-239 compatible
 - **Verbose audit logging** — `local3` syslog facility, forwarded to SIEM via rsyslog
 - **Documented pitfalls** — every non-obvious OL8/4.8.x failure mode explained and solved
