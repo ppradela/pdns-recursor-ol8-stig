@@ -16,7 +16,6 @@
 - **Pure recursive resolution** — walks the DNS tree from root servers; no forwarders, no internet dependency at runtime
 - **DNSSEC full validation** — bogus responses return SERVFAIL; trust anchors set via Lua, not the broken INI key
 - **Offline root hints** — `named.root` bundled in this repository (verify currency before deployment)
-- **DISA STIG DNS V2R4 compliance** — all applicable controls satisfied and mapped
 - **systemd hardening drop-in** — capabilities tightened, core dumps disabled, syscall filter extended; OL8/systemd-239 compatible
 - **Verbose audit logging** — `local3` syslog facility, forwarded to internal SIEM via rsyslog
 - **Zero runtime internet access required** — resolves via in-enclave authoritative servers or a forwarding stub; all packages pre-staged
