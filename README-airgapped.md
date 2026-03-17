@@ -4,7 +4,7 @@
 
 ![PowerDNS](https://img.shields.io/badge/PowerDNS_Recursor-4.8.9-blue)
 ![OL8](https://img.shields.io/badge/Oracle_Linux-8-red)
-![STIG](https://img.shields.io/badge/DISA_STIG-green)
+![STIG](https://img.shields.io/badge/DISA_STIG-Oracle_Linux_8_V2R7-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 > **Internet-connected network?** See [README.md](README.md) for the standard deployment guide.
