@@ -4,7 +4,7 @@
 
 ![PowerDNS](https://img.shields.io/badge/PowerDNS_Recursor-4.8.9-blue)
 ![OL8](https://img.shields.io/badge/Oracle_Linux-8-red)
-![STIG](https://img.shields.io/badge/DISA_STIG-green)
+![STIG](https://img.shields.io/badge/DISA-STIG-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 > **Air-gapped / disconnected network?** See [README-airgapped.md](README-airgapped.md).
