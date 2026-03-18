@@ -217,7 +217,7 @@ local3.*   @@(o)siem.internal.mil:6514
 systemctl restart rsyslog
 ```
 
-> Plain UDP (`@`) must not be used on classified or CUI networks. Ensure the SIEM's TLS certificate chain is trusted by the host's certificate store, or configure the CA explicitly in rsyslog's `$DefaultNetstreamDriverCAFile`.
+> Plain UDP (`@`) should not be used in critical networks that require a high level of security. Ensure the SIEM's TLS certificate chain is trusted by the host's certificate store, or configure the CA explicitly in rsyslog's `$DefaultNetstreamDriverCAFile`.
 
 ### Step 9 — Enable and start
 
