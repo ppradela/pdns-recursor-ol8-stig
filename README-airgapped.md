@@ -231,6 +231,36 @@ systemctl enable --now pdns-recursor
 systemctl status pdns-recursor
 ```
 
+### Step 10 — Configure firewalld
+
+Remove all default services and allow only what this host requires. Adjust the
+zone and the allowed services to match your enclave before applying.
+
+```bash
+# Identify the active zone (commonly 'public' on a freshly installed host)
+firewall-cmd --get-active-zones
+
+# Remove every pre-configured service from the zone
+# Replace 'public' if your active zone differs
+for svc in $(firewall-cmd --zone=public --list-services); do
+  firewall-cmd --permanent --zone=public --remove-service="$svc"
+done
+
+# Allow SSH (adjust or remove if management access is via a jump host or out-of-band console)
+firewall-cmd --permanent --zone=public --add-service=ssh
+
+# Allow DNS — required for clients querying this resolver
+firewall-cmd --permanent --zone=public --add-service=dns
+
+# Add any additional services your enclave requires, for example:
+#   --add-rich-rule='rule family="ipv4" source address="10.0.0.0/8" service name="dns" accept'
+#                                 # to restrict DNS to a specific internal source range
+#   --add-service=syslog          # if this host forwards logs to an in-enclave SIEM
+
+firewall-cmd --reload
+firewall-cmd --zone=public --list-all    # verify before continuing
+```
+
 ---
 
 ## Smoke Tests
