@@ -107,6 +107,9 @@ cd ~/pdns-stage
 curl -O https://www.internic.net/domain/named.root
 curl -O https://www.internic.net/domain/named.root.sig
 
+# Import the IANA signing key on the staging machine (one-time, or when key changes)
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys F0CB1A326BDF3F3EFA3A01FA937BB869E3A238C5
+
 # Verify PGP signature before transferring
 gpg --verify named.root.sig named.root     # must show: Good signature
 ```

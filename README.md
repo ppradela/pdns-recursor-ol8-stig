@@ -137,11 +137,17 @@ Always fetch a fresh copy and verify the PGP signature. Do not use the copy from
 cd /tmp
 curl -O https://www.internic.net/domain/named.root
 curl -O https://www.internic.net/domain/named.root.sig
+
+# Import the IANA signing key (one-time, or when key changes)
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys F0CB1A326BDF3F3EFA3A01FA937BB869E3A238C5
+
 gpg --verify named.root.sig named.root     # must show: Good signature
 
 install -o root -g root -m 0444 \
   /tmp/named.root /etc/pdns-recursor/named.root
 ```
+
+> **FIPS mode note:** On OL8 with FIPS enabled, `gpg` emits `out of core handler ignored in FIPS mode` (harmless warning) but may also refuse to verify DSA signatures. If verification fails with a DSA-related error, compare the SHA-256 hash of the downloaded file against a trusted out-of-band source as an alternative integrity check.
 
 ### Step 5 — Install the systemd hardening drop-in
 
