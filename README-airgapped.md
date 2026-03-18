@@ -116,6 +116,8 @@ gpg --verify named.root.sig named.root     # must show: Good signature
 
 > If the repository copy of `named.root` is sufficiently current (check the timestamp in the file header), it may be used directly. The PGP-verified IANA copy is always preferred.
 
+> **FIPS mode note:** On OL8 with FIPS enabled, `gpg` emits `out of core handler ignored in FIPS mode` (harmless warning) but may also refuse to verify DSA signatures. If verification fails with a DSA-related error, compare the SHA-256 hash of the downloaded file against a trusted out-of-band source as an alternative integrity check.
+
 ---
 
 ## Deployment
@@ -175,7 +177,7 @@ Edit the three site-specific values before starting the service:
 ### Step 5 — Install recursor.lua
 
 ```bash
-install -o root -g root -m 0440 \
+install -o root -g pdns-recursor -m 0440 \
   recursor.lua /etc/pdns-recursor/recursor.lua
 ```
 

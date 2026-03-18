@@ -123,7 +123,7 @@ Edit the three site-specific values before starting the service:
 ### Step 3 — Install recursor.lua
 
 ```bash
-install -o root -g root -m 0440 \
+install -o root -g pdns-recursor -m 0440 \
   recursor.lua /etc/pdns-recursor/recursor.lua
 ```
 
